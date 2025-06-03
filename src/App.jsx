@@ -57,12 +57,13 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Table handleDelete={handleDelete} handleEdit={handleEdit} list={list}/>
       <Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         user={user}
       />
+    <Table handleDelete={handleDelete} handleEdit={handleEdit} list={list}/>
+
       <ToastContainer
         position="top-right"
         autoClose={5000}
