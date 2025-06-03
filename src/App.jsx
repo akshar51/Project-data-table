@@ -35,6 +35,8 @@ const App = () => {
     }
 
     handleFetch();
+    setUser({});
+    setEditIdx("")
   };
 
   const handleFetch = async () => {
@@ -46,10 +48,11 @@ const App = () => {
   const handleDelete = async (id) => {
     await axios.delete(`${url}/${id}`);
     toast.warn("User Deleted!!!", {});
+    handleFetch()
   };
 
   const handleEdit = (id) => {
-    let data = list.find((val) => val.id === id)[0];
+    let data = list.find((val) => val.id === id);
     setUser(data);
     setEditIdx(id);
   };
