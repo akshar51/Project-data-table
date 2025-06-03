@@ -10,7 +10,7 @@ const Table = (props) => {
   
 
   let userData = list.filter((val)=>{
-    return val.email.toLowerCase().includes(textfilter.toLowerCase())
+    return val.email?.toLowerCase().includes(textfilter.toLowerCase())
   })
 
   let column = [
@@ -42,8 +42,11 @@ const Table = (props) => {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-md-7 border mx-auto">
-            <input type="text" name='search' onChange={(e)=>setTextfilter(e.target.value)}/>
+          <div className="col-md-7 mx-auto">
+            <div className='d-flex justify-content-end mb-2'>
+              <input type="text" name='search' className='px-3 py-1' placeholder='Search user...' 
+              onChange={(e)=>setTextfilter(e.target.value)}/>
+            </div>
 
             <DataTable
             title={"User Data : "}

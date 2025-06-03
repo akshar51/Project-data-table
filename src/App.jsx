@@ -36,7 +36,6 @@ const App = () => {
 
     handleFetch();
     setUser({});
-    setEditIdx("")
   };
 
   const handleFetch = async () => {
