@@ -1,10 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+
 
 const Form = (props) => {
 
-  let {handleChange,handleSubmit,user} = props
+  let {handleChange,handleSubmit,user,error} = props
   return (
     <>
+    <Navbar/>
       <div className="container">
         <div className="row">
           <div className="col-md-7 mx-auto mt-4">
@@ -21,6 +24,9 @@ const Form = (props) => {
                   onChange={handleChange}
                   value={user.email || ""}
                 />
+                {
+                  error.email && <span className="fw-bold text-danger">{error.email}</span>
+                }
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
@@ -34,6 +40,9 @@ const Form = (props) => {
                   onChange={handleChange}
                   value={user.password || ""}
                 />
+                {
+                  error.password && <span className="fw-bold text-danger">{error.password}</span>
+                }
               </div>
               <button type="submit" className="btn btn-primary">
                 Submit

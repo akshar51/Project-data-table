@@ -4,6 +4,7 @@ import Table from "./components/Table";
 import Form from "./components/Form";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 
 const App = () => {
@@ -11,6 +12,8 @@ const App = () => {
   const [user, setUser] = useState({});
   const [list, setList] = useState([]);
   const [editIdx, setEditIdx] = useState("");
+  const [error,setError] = useState({})
+  const navi = useNavigate();
 
   useEffect(() => {
     handleFetch();
@@ -26,16 +29,20 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(!validation()) return;
+
     if (editIdx == "") {
       await axios.post(url, { ...user, id: String(Date.now()) });
       toast.success("User added successfully", {});
     } else {
       await axios.put(`${url}/${editIdx}`, { ...user });
       toast.info("User updated successfully", {});
+      setEditIdx("")
     }
 
     handleFetch();
     setUser({});
+    navi("/table")
   };
 
   const handleFetch = async () => {
@@ -54,17 +61,34 @@ const App = () => {
     let data = list.find((val) => val.id === id);
     setUser(data);
     setEditIdx(id);
+    navi("/")
   };
+
+  const validation = ()=>{
+    let error = {};
+    if(!user.email) error.email = "Email is required.";
+    if(!user.password) error.password = "Password is required.";
+    setError(error);
+    return Object.keys(error).length === 0
+  }
 
   return (
     <>
-      <Navbar />
-      <Form
+      <Routes>
+        <Route path="/" element={<Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        user={user}
+        user={user} error={error}/>}
       />
-    <Table handleDelete={handleDelete} handleEdit={handleEdit} list={list}/>
+      {/* <Route path="/form" element={<Form
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        user={user} error={error}/>}
+      /> */}
+      <Route path="/table" element={<Table handleDelete={handleDelete} handleEdit={handleEdit} list={list}/>}/>
+      </Routes>
+      
+    
 
       <ToastContainer
         position="top-right"

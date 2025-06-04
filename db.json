@@ -1,29 +1,3 @@
 {
-  "user": [
-    {
-      "id": "1748970033723",
-      "email": "akshar@gmail.com",
-      "password": "2356"
-    },
-    {
-      "id": "1748970045536",
-      "email": "milan@.com",
-      "password": "8520"
-    },
-    {
-      "id": "1748970060496",
-      "email": "milunnnn@.com",
-      "password": "789"
-    },
-    {
-      "id": "1748970076945",
-      "email": "ullu@.com",
-      "password": "7410"
-    },
-    {
-      "id": "1748970092484",
-      "password": "",
-      "email": "Akshar@gmail.com"
-    }
-  ]
+  "user": []
 }

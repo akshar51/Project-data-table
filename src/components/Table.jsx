@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
+import Navbar from './Navbar';
 
 const Table = (props) => {
 
@@ -40,9 +41,10 @@ const Table = (props) => {
 
   return (
     <>
+    <Navbar/>
       <div className="container">
         <div className="row">
-          <div className="col-md-7 mx-auto">
+          <div className="col-md-7 mx-auto mt-4">
             <div className='d-flex justify-content-end mb-2'>
               <input type="text" name='search' className='px-3 py-1' placeholder='Search user...' 
               onChange={(e)=>setTextfilter(e.target.value)}/>
