@@ -12,6 +12,7 @@ const Form = (props) => {
         <div className="row">
           <div className="col-md-7 mx-auto mt-4">
             <form onSubmit={handleSubmit}>
+              <h1 className="text-center">Sign Up</h1>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Email : 
