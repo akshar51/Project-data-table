@@ -1,3 +1,9 @@
 {
-  "user": []
+  "user": [
+    {
+      "id": "1749034197670",
+      "email": "byhaji@mailinator.com",
+      "password": "Pa$$w0rd!"
+    }
+  ]
 }

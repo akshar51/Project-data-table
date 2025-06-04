@@ -6,9 +6,9 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
-
+let url = "http://localhost:3000/user";
 const App = () => {
-  let url = "http://localhost:3000/user";
+  
   const [user, setUser] = useState({});
   const [list, setList] = useState([]);
   const [editIdx, setEditIdx] = useState("");
