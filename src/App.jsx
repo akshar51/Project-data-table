@@ -74,7 +74,7 @@ const App = () => {
 
   return (
     <>
-      <Routes>
+      <Routes> 
         <Route path="/" element={<Form
         handleChange={handleChange}
         handleSubmit={handleSubmit}
